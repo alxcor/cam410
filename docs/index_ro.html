@@ -7,6 +7,7 @@
   <style>
     /* Setari generale: chenar, fonturi, etc. */
     * { box-sizing: border-box;}
+    body {color: #000000; background-color: #FFFFFF;}
     body {font-family: Arial, sans-serif; font-size: 100%;}
     h1 {font-family: Garamond, serif; font-size: 2.500rem;}
     h2 {font-family: Garamond, serif; font-size: 1.875rem;}
@@ -14,18 +15,18 @@
     table {border-collapse: collapse;width: 100%;}
     th {border: 1px solid #004080;}
     td {border: 1px solid #004080;}
-    tr:nth-child(odd) {background-color: rgba(120, 120, 170, 0.4);
-}    /* Logo: data/versiune; titlu; subtitlu */
+    tr:nth-child(odd) {background-color: rgba(120, 120, 170, 0.4);}
+    /* Logo: data/versiune; titlu; subtitlu */
     .logo1p {
       margin-top: 5px; margin-left: 15px; margin-right: 10px;
       font-family: Arial; font-size: 0.8rem; line-height: 10px;
-      text-align: right; color: #004080; }
+      text-align: right; color: #90909F; }
     .logo2p { 
       margin-top: 10px; margin-left: 15px; margin-right: 10px;
       font-family: Arial; font-size: 3rem; line-height: 50px;
       text-align: left; color: #303050; }
     .logo3p {
-      margin-top: -20px; margin-left: 180px; margin-right: 10px;
+      margin-top: -20px; margin-left: 100px; margin-right: 10px;
       font-family: Arial; font-size: 2.5rem; line-height: 35px;
       text-align: left; color: #90909F; }
     /* Bara meniu orizontal: setari fundal */
@@ -121,10 +122,16 @@
         padding: 0.5rem 0; width: 100%; color: white;
         background-color: #10102F;}
     }
+    @media (prefers-color-scheme: light) {
+      body {color: #000000; background-color: #FFFFFF;}
+    }
+    @media (prefers-color-scheme: dark) {
+      body {color: #FFFFFF; background-color: #000000;}
+    }
   </style>
 </head>
 <!-- START BODY ... -->
-<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<body>
   <!-- START Header Area ... -->
   <a name="#top"> </a>
   <div class="logo1p" align="center">v22.12.16; Dec.2022</div>
@@ -177,7 +184,7 @@
         Apsasarea (click stanga cu mouse) oricarui buton de pe instalatia simulata seteaza intrarea corespunzatoare din PLC-ul conectat.<br><br>
         <img alt="Cam410" title="Cam410" src="images/cam410_30.png" width=100%>
         <br><br>
-        Banda transportoare poate fi simulata in 2D sau 2 1/2D. O versiune 3D utilizand OpenGL este in lucru...<br><br>
+        Banda transportoare poate fi simulata in 2D, 2 1/2D sau 3D ...<br><br>
         <br><br>
         <a>Cod pe GitHub...</a>
         <a>Cam410 download ...</a>
