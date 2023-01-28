@@ -75,7 +75,7 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
     .elem_top > * {color: white;}
     .elem_top > h1 {font-size: 3rem; padding-bottom: 0.5rem;
-      background-color: rgba(255,255,255,0.1); color: #F0F0FF;}
+      background-color: rgba(0,0,0,0.5); color: #F0F0FF;}
     /* Element principal tip 2 */
     .elem_tos { padding: 0rem; margin: 0rem;}
     .elem_tos > figure {height: 340px; overflow: hidden; margin:0rem;}
@@ -85,7 +85,7 @@
       list-style-type: none; display: list-item; grid-gap: 1rem;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       padding: 0.2rem;}
-    .elem_lst > ul > li {border: 0px solid #90909F;border-bottom: 1px solid #90909F;}
+    .elem_lst > ul > li {border: 0px solid #90909F; border-bottom: 1px solid #90909F;}
     .elem_lst > ul > li > figure {
       height: 200px; overflow: hidden; margin:0.1rem;}
     .elem_lst > ul > li > figure > img {width: 100%;}
@@ -95,15 +95,18 @@
     .elem_lst > ul > li > figure > figcaption > h3 {
       color: white; padding: .75rem; font-size: 1.25rem;}
     .elem_lst > ul > li > p {
-      font-size: 1rem; line-height: 1; padding: 0.2rem .2rem;
+      font-size: 1rem; line-height: 1.1rem; padding: 0.2rem 0.2rem;
       <!--color: #90909F;-->}
     .elem_lst > ul > li > p > a {
       font-size: 0.8rem; line-height: 1; padding: 0.5rem;
       background-color: 40404F; text-decoration: none;
       color: FFFFFF; border-radius: .25rem;
       text-align: center; display: inline-block;}
+    .mono {font-family: monospace; margin-left: 20px;}
+    .par1 {margin-left: 20px;}
+    .maxp {max-width: 100%;}
     .footer {
-      background-color: #606060; color: white; padding: .25rem;
+      background-color: #40404F; color: white; padding: .25rem;
       text-align: right; font-size: .5rem;}
     @media (max-width: 800px) {
       .menu_ctn { display: flex;}
@@ -134,7 +137,7 @@
 <body>
   <!-- START Header Area ... -->
   <a name="#top"> </a>
-  <div class="logo1p" align="center">v22.12.16; Dec.2022</div>
+  <div class="logo1p" align="center">v23.01.28; Ian.2023</div>
   <div class="logo2p" align="center"><b>Cam410</b></div>
   <div class="logo3p" align="center"><b>Ajutor</b></div>
   <!-- END Header Area ... -->
@@ -159,52 +162,87 @@
   <h1>Cam410</h1>
 </section>
 <br>
-<!--section class="elem_tos">
-  <figure>
-    <img alt=" " title=" " src="images/header.png" width=100%>
-  </figure>
-</section-->
 <section class="elem_lst">
   <ul>
     <li id="cam410x">
-      <h2>Simulatoare pentru cursuri Step7 si TIA remote/online...</h2>
-      <p> </p>
+      <p><b>Cam410</b> este o serie de programe ce pot fi utilizate pentru simularea (inlocuirea) benzii transportoare utilizate la cursurile Sitrain (Step7 si TIA) ...</p>
     </li>
     <li id="cam410">
-      <h2>Simulator pentru TIA Pro, TIA Serv, Step7 Pro, Step7 Serv, etc...</h2>
+      <h2>Cam410, Cam410C, Cam410T</h2>
+      <h3>Simulator pentru TIA Pro, TIA Serv, Step7 Pro, Step7 Serv, etc...</h3>
       <p>
-        <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
-        <br><br>
-        <b>Cam410</b> este un mic simulator pentru banda transportoare utilizata la cursurile Siemens SITRAIN.<br><br>
+        <b>Cam410</b> este un mic simulator pentru banda transportoare utilizata la cursurile Siemens SITRAIN.<br>
+        <br>
         <b>Cam410</b> poate fi conectat la un PLC real Step7 300 sau Step7 1500 PLC utilizand o conexiune TCP/IP.<br>
         Simulatorul este controlat de catre iesirile PLC, banda transportoare poate fi deplasata in ambele directii impreuna cu eventualele piese aflate pe banda.<br>
+        Apasarea (click stanga cu mouse) oricarui buton de pe instalatia simulata seteaza intrarea corespunzatoare din PLC-ul conectat.<br>
         <br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_25.png" width=100%>
-        <br><br>
-        Apsasarea (click stanga cu mouse) oricarui buton de pe instalatia simulata seteaza intrarea corespunzatoare din PLC-ul conectat.<br><br>
+      </p>
+      <p class="mono">
+        Versiuni:<br>
+        - v230124 [24.01.2023] Cam410T: 'Fork' a Cam410C bazat pe Cam410C v230124. Prima versiune cu simulare 3D.<br>
         <img alt="Cam410" title="Cam410" src="images/cam410_30.png" width=100%>
-        <br><br>
-        Banda transportoare poate fi simulata in 2D, 2 1/2D sau 3D ...<br><br>
-        <br><br>
+        - v230124 [24.01.2023] Cam410C: Grafica imbunatatita.<br>
+        - v221025 [25.10.2022] Cam410C: Corectare erori (eroare la activare template, etc.)<br>
+        - v220321 [21.03.2022] Cam410C: Mici imbunatatiri la interfata.<br>
+        - v220117 [17.01.2022] Cam410C: Grafica si functionalitate imbunatatite referitor la viteza de simulare.<br>
+        - v210524 [24.05.2021] Cam410C: Fereastra scalabila.<br>
+        - v210511 [11.05.2021] Cam410C: Teste pentru scalare fereastra.<br>
+        - v210509 [09.05.2021] Cam410C: Test pentru o versiune comuna atat pentru standurile de TIA Portal cat si pentru cele cu S7-300.<br>
+        - v210407 [07.04.2021] Cam410C [Classic] [pt. S7-300]: 'Fork' a Cam410. Adaptat pentru cursurile S7-300.<br>
+        - v210301 [01.03.2021] Cam410: 'Checkbox' pentru comutare rapida a adreselor intre S7-1500 si ET200SP. Ultima versiune Cam410. Inlocuit de Cam410C de la Cam410C v210509<br>
+        - v210123 [23.01.2021] Cam410T: Teste initiale o simulare 3D bazata pe OpenGL. Versiune de test, ne-functionala.<br>
+        - v201204 [04.12.2020] Cam410 [zip201215]: Simulare control PID. Corecturi referitoare la fonturi, scalabilitate (cateva dimensiuni fixe).<br>
+        - v201112 [12.11.2020] Cam410 [zip201201]: Modificare scalare intrari analogice...<br>
+        - v201029 [29.10.2020] Monitrain [zip201106]: Adaugare cod control pentru conectivitate...<br>
+        - v201017 [17.10.2020] Monitrain: Adaugare vedere 2.5D. Diverse imbunatatiri referitoare la grafica si functionalitate.<br>
+        <img alt="Cam410" title="Cam410" src="images/cam410_25.png" width=100%>
+        - v200514 [14.05.2020] Monitrain: Posibilitate de control a vitezei de animatie. Textele butoanelor sunt editabile.<br>
+        - v200428 [28.04.2020] Monitrain: Prima versiune functionala. Vedere fixa 2D. Doar setari pentru stand curs TIA Portal.<br>
+        <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
+      </p>
+      <p>
+        <i>Projecte bazate pe Qt5, utilizand Snap7 (de Davide Nardella).</i><br>
+        <br>
         <a>Cod pe GitHub...</a>
         <a>Cam410 download ...</a>
       </p>
     </li>
     <li id="cam410s">
-      <h2>Simulator pentru TIA Safety</h2>
+      <h2>Cam410S, Cam410hlp: Simulator pentru TIA Safety</h2>
+      <h3>Cam410S</h3>
       <p>
         <img alt="Cam410s" title="TIA Safety" src="images/cam410s_20.png" width=100%>
         <br><br>
-        <b>Cam410s</b> este un mic simulator pentru cursurile (cu acces remote/online) TIA Safety ...<br><br>
-        <br><br>
-        <b>Cam410hlp</b>: este o aplicatie C# utilzata pentru controlul intrarilor "Safety Inputs" ale unui PLC simulat.<br><br>
+        <b>Cam410s</b> este un mic simulator a instalatiei utilizate la cursurile (cu acces remote/online) TIA Safety ...<br>
+        <br>
+      </p>
+      <p class="mono">
+        Versiuni:<br>
+        - v230124 [24.01.2023] Grafica imbunatatita.<br>
+        - v221017 [17.10.2022] Fereastra scalabila. Imbunatatiri functionale. Corectare erori.<br>
+        - v220222 [22.02.2022] Versiune noua pentru standul de scolarizare TIA Portal Safety v16/17. Diverse imbunatatiri functionale. Corectare erori.<br>
+        - v210119 [19.01.2021] Corectare erori.<br>
+        - v201204 [04.12.2020] [zip201218] Teste initiale. 2.5D cu dimensiune fixa. Setat pentru standul TIA Portal Safety v15.<br>
+      </p>
+      <h3>Cam410hlp</h3>
+      <p>
+        <b>Cam410hlp</b>: este o aplicatie C# utilzata pentru controlul intrarilor "Safety Inputs" ale unui PLC simulat.<br>
+        <br>
         Intrarile de tip Safety sunt protejate in PLC si valorile lor nu pot fi scrise din aplicatii externe conectate la PLC.<br>
         Simulatoarele PLC precum PLCSIM Advanced pastreaza acest comportament astfel incat Intrarile de tip Safety raman protejate.<br>
         Din acest motiv, chiar si atunci cand sunt utilizate simulatoarele S7-PLCSIM sau S7-PLCSIM Advanced, Cam410s poate citi atat iesirile PLC "standard" si "safety",
         poate scrie intrarile PLC "standard" dar nu poate scrie valori pentru intrarile PLC "safety".<br><br>
         Cam410hlp foloseste interfata API a PLCSIM Advanced pentru a ajuta aplicatia Cam410s sa controleze starea intrarilor "safety" pentru un PLC simulat.<br><br>
-        <br><br>
-        <a>Code pe GitHub...</a>
+      </p>
+      <p class="mono">
+        Versions:<br>
+        - v220330 [30.03.2022] Corectat 'bug' "crash on downloading PLC program".<br>
+        - v210104 [04.01.2021] Prima versiune functionala.<br>
+      </p>
+      <p>
+        <br>
+        <a>Cod pe GitHub...</a>
         <a>Cam410s download ...</a>
         <a>Cam410hlp download ...</a>
       </p>
