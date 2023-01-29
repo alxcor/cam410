@@ -165,13 +165,13 @@
 <section class="elem_lst">
   <ul>
     <li id="cam410x">
-      <p><b>Cam410</b> is a small series of programs used to simulate the conveyor used in remote/online Sitrain (Step7 and TIA) trainings ...</p>
+      <p><b>Cam410</b> is a small series of programs used to simulate the conveyor used in remote/online Sitrain (Step7 and TIA) courses ...</p>
     </li>
     <li id="cam410">
       <h2>Cam410, Cam410C, Cam410T</h2>
       <h3>Simulator for TIA Pro, TIA Serv, Step7 Pro, Step7 Serv, etc...</h3>
       <p>
-        <b>Cam410</b> is a small simulator for the conveyor band used in Siemens SITRAIN trainings.<br>
+        <b>Cam410</b> is a small simulator for the conveyor band used in Siemens SITRAIN courses.<br>
         <br>
         Cam410 may be connected to a real Step7 300 or Step7 1500 PLC using a TCP/IP connection.<br>
         The simulated conveyor is controlled by the outputs of the PLC, the conveyor band may be moved in both directions traversing the parts placed on the band.<br>
@@ -186,8 +186,8 @@
         - v221025 [25.10.2022] Cam410C: Bug Fixes (template activation error, etc.)<br>
         - v220321 [21.03.2022] Cam410C: Minor interface changes.<br>
         - v220117 [17.01.2022] Cam410C: Improved graphics and functional improvements regarding simulation speed.<br>
-        - v210524 [24.05.2021] Cam410C: Scalable window.<br>
-        - v210511 [11.05.2021] Cam410C: Test for a scalable window.<br>
+        - v210524 [24.05.2021] Cam410C: Variable window size.<br>
+        - v210511 [11.05.2021] Cam410C: Test for a variable window size.<br>
         - v210509 [09.05.2021] Cam410C: Test on a common version for both TIA Portal and S7-300 training racks.<br>
         - v210407 [07.04.2021] Cam410C [Classic] [for S7-300]: Fork of Cam410. Adapted for S7-300 training rack.<br>
         - v210301 [01.03.2021] Cam410: Checkbox for quick change of addresses S7-1500 to ET200SP. Last version of Cam410. Replaced by Cam410C from Cam410C v210509<br>
@@ -220,7 +220,7 @@
       <p class="mono">
         Versions:<br>
         - v230124 [24.01.2023] Improved icons and graphics.<br>
-        - v221017 [17.10.2022] Scalable window. Functional improvements. Bug fixes.<br>
+        - v221017 [17.10.2022] Variable window size. Functional improvements. Bug fixes.<br>
         - v220222 [22.02.2022] New version for TIA Portal Safety v16/17 training rack. Various functional improvements and bug fixes.<br>
         - v210119 [19.01.2021] Bug fixes.<br>
         - v201204 [04.12.2020] [zip201218] First tests. 2.5D fixed size. Set for TIA Portal Safety v15 training rack.<br>
@@ -230,17 +230,43 @@
         <b>Cam410hlp</b>: is a small C# application used to control the "Safety Inputs" of a simulated PLC<br>
         <br>
         Safety inputs are protected in the PLC and their value cannot be written from an external application.<br>
-        PLC simulators such as PLCSIM Advanced maintain also this behaviour so that Safety Inputs remain protected.<br>
+        PLC simulators such as PLCSIM Advanced maintain also this behavior so that Safety Inputs remain protected.<br>
         Because of this, even when using S7-PLCSIM or S7-PLCSIM Advanced simulators, Cam410s can read both "standard" and "safety" PLC outputs,
         can write the "standard" PLC inputs but can not write "safety" PLC inputs values.<br><br>
         Cam410hlp is using PLCSIM Advanced API interface to help Cam410s control "safety" inputs of the simulated PLC.<br>
+      </p>
+      <p>
+        Help:<br>
+        The first instance (instance 0) from PLCSim Advanced is automatically connected.<br>
+        - If PLCSim Advanced is not installed Cam410hlp does not start (or crash on start... don't really know).<br>
+        - When no instance is active in PLCSim Advanced, Cam410hlp waits for one.<br>
+        - When more than one instance is active in PLCSim Advanced, first one (instance 0) is connected.<br>
+        - When instance 0 is closed, Cam410hlp connects automatically to the next available instance (new instance 0) (if one is active).<br>
+        <br><br>
+        Pairs of addresses are declared in the settings file cam410hlp.ini:<br>
+        -  I_[n]=<br>
+        -  O_[n]=<br>
+        <br>
+        Addresses may be absolute (starting with character %) or symbolic "PLC tags" (without % as first char).<br>
+        <br>
+        For absolute addresses only I, M, Q are allowed and only Bool or Byte.<br>
+        Example for Bool: %I0.0, %M2.7, %Q12.3<br>
+        Example for Byte: %MB10, %IB12, %QB20<br>
+        <br>
+        All addresses of type "PLC Tag" (symbolic addresses) must be already present in a Tag Table in PLC, Cam410hlp check the list when connecting to PLC.<br>
+        <br>
+        After a successful connection to instance 0 of PLCSim Advanced, values of variables declared on I_[n] are transferred to variables declared on O_[n], if possible.<br>
+        Values are transferred only between parameters of the same or compatible type:<br>
+        -  I_[n]=%M20.0<br>
+        -  O_[n]=%I4.0<br>
+        The M20.0 value is automatically transferred to I4.0<br>
       </p>
       <p class="mono">
         Versions:<br>
         - v220330 [30.03.2022] Fixed "crash on downloading PLC program".<br>
         - v210104 [04.01.2021] First functional version.<br>
       </p>
-        <br><br>
+      <p>
         <a>Code on GitHub...</a>
         <a>Cam410s download ...</a>
         <a>Cam410hlp download ...</a>

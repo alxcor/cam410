@@ -202,7 +202,7 @@
         <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
       </p>
       <p>
-        <i>Projecte bazate pe Qt5, utilizand Snap7 (de Davide Nardella).</i><br>
+        <i>Proiecte bazate pe Qt5, utilizand Snap7 (de Davide Nardella).</i><br>
         <br>
         <a>Cod pe GitHub...</a>
         <a>Cam410 download ...</a>
@@ -234,6 +234,32 @@
         Din acest motiv, chiar si atunci cand sunt utilizate simulatoarele S7-PLCSIM sau S7-PLCSIM Advanced, Cam410s poate citi atat iesirile PLC "standard" si "safety",
         poate scrie intrarile PLC "standard" dar nu poate scrie valori pentru intrarile PLC "safety".<br><br>
         Cam410hlp foloseste interfata API a PLCSIM Advanced pentru a ajuta aplicatia Cam410s sa controleze starea intrarilor "safety" pentru un PLC simulat.<br><br>
+      </p>
+      <p>
+        Ajutor:<br>
+        Programul se conecteaza automat la prima instanta deschisa in PLCSim Advanced<br>
+        - Daca PLCSim Advanced nu este instalat programul nu ruleaza (sau 'crapa', nu stiu).<br>
+        - Daca nu este activa nici o instanta programul asteapta initializarea unei instante.<br>
+        - Daca sunt mai multe instante active, se conecteaza la prima dintre ele (instanta 0).<br>
+        - Daca instanta 0 este inchisa se conecteaza automat la urmatoarea instanta, daca exista.<br>
+        <br><br>
+        Programul citeste din fisierul cam410hlp.ini perechi de adrese:<br>
+        -  I_[n]=<br>
+        -  O_[n]=<br>
+        <br>
+        Adresele pot fi absolute (cu % ca prim caracter) sau de tip "Tag PLC" (fara % ca prim caracter).<br>
+        <br>
+        Adresele absolute pot fi doar I, M, Q si doar Bool sau Byte.<br>
+        Exemple pt. Bool: %I0.0, %M2.7, %Q12.3<br>
+        Exemple pt. Byte: %MB10, %IB12, %QB20<br>
+        <br>
+        Adresele simbolice, de tip "Tag PLC", trebuie sa existe in tabelele de Tag-uri din PLC, programul verifica lista la conectare.<br>
+        <br>
+        Dupa conectarea la instanta PLCSim Advanced, valoarea parametrului I_[n] este transferata in O_[n], daca e posibil.<br>
+        Sunt transferate valori doar intre parametri de acelasi tip sau compatibili:<br>
+        -  I_[n]=%M20.0<br>
+        -  O_[n]=%I4.0<br>
+        Valoarea M20.0 este transferata automat in I4.0<br>
       </p>
       <p class="mono">
         Versions:<br>
