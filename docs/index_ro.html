@@ -168,7 +168,7 @@
       <p><b>Cam410</b> este o serie de programe ce pot fi utilizate pentru simularea (inlocuirea) benzii transportoare utilizate la cursurile Sitrain (Step7 si TIA) ...</p>
     </li>
     <li id="cam410">
-      <h2>Cam410, Cam410C, Cam410T</h2>
+      <h2>Cam410, Cam410C, Cam410D</h2>
       <h3>Simulator pentru TIA Pro, TIA Serv, Step7 Pro, Step7 Serv, etc...</h3>
       <p>
         <b>Cam410</b> este un mic simulator pentru banda transportoare utilizata la cursurile Siemens SITRAIN.<br>
@@ -178,10 +178,26 @@
         Apasarea (click stanga cu mouse) oricarui buton de pe instalatia simulata seteaza intrarea corespunzatoare din PLC-ul conectat.<br>
         <br>
       </p>
-      <p class="mono">
-        Versiuni:<br>
-        - v230124 [24.01.2023] Cam410T: 'Fork' a Cam410C bazat pe Cam410C v230124. Prima versiune cu simulare 3D.<br>
+      <p>
+        <b>Ajutor:</b><br>
+        <br>
+        <b>Setari:</b> Apasati butonul Setari si selectati un model pentru intrari: template pentru cursuri TIA sau ST (Step7 Classic).<br>
+        Setati si adresele pentru Intrari si Iesiri standului real de curs.<br>
+        Setati adresa TCP/IP a PLC si numerele de Rack si Slot a pozitiei CPU pe stand: valori uzuale sunt Rack0 Slot0 pentru S7-1500 si Rack0 Slot2 pentru S7-300.<br>
+        <br>
+        <b>Selectie scena: Selectati o vedere pentru simulare din lista:</b><br><br>
+        Scena3: o simulare 3D a benzii transportoare.<br><br>
         <img alt="Cam410" title="Cam410" src="images/cam410_30.png" width=100%>
+        <br><br>
+        Scena2: o simulare 2.5D a benzii transportoare.<br><br>
+        <img alt="Cam410" title="Cam410" src="images/cam410_25.png" width=100%>
+        <br><br>
+        Scena1: o simulare 2D a benzii transportoare.<br><br>
+        <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
+      </p>
+      <p>
+        Versiuni:<br>
+        - v230124 [24.01.2023] Cam410D: 'Fork' a Cam410C bazat pe Cam410C v230124. Prima versiune cu simulare 3D.<br>
         - v230124 [24.01.2023] Cam410C: Grafica imbunatatita.<br>
         - v221025 [25.10.2022] Cam410C: Corectare erori (eroare la activare template, etc.)<br>
         - v220321 [21.03.2022] Cam410C: Mici imbunatatiri la interfata.<br>
@@ -191,15 +207,13 @@
         - v210509 [09.05.2021] Cam410C: Test pentru o versiune comuna atat pentru standurile de TIA Portal cat si pentru cele cu S7-300.<br>
         - v210407 [07.04.2021] Cam410C [Classic] [pt. S7-300]: 'Fork' a Cam410. Adaptat pentru cursurile S7-300.<br>
         - v210301 [01.03.2021] Cam410: 'Checkbox' pentru comutare rapida a adreselor intre S7-1500 si ET200SP. Ultima versiune Cam410. Inlocuit de Cam410C de la Cam410C v210509<br>
-        - v210123 [23.01.2021] Cam410T: Teste initiale o simulare 3D bazata pe OpenGL. Versiune de test, ne-functionala.<br>
+        - v210123 [23.01.2021] Cam410D: Teste initiale o simulare 3D bazata pe OpenGL. Versiune de test, ne-functionala.<br>
         - v201204 [04.12.2020] Cam410 [zip201215]: Simulare control PID. Corecturi referitoare la fonturi, scalabilitate (cateva dimensiuni fixe).<br>
         - v201112 [12.11.2020] Cam410 [zip201201]: Modificare scalare intrari analogice...<br>
         - v201029 [29.10.2020] Monitrain [zip201106]: Adaugare cod control pentru conectivitate...<br>
         - v201017 [17.10.2020] Monitrain: Adaugare vedere 2.5D. Diverse imbunatatiri referitoare la grafica si functionalitate.<br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_25.png" width=100%>
         - v200514 [14.05.2020] Monitrain: Posibilitate de control a vitezei de animatie. Textele butoanelor sunt editabile.<br>
         - v200428 [28.04.2020] Monitrain: Prima versiune functionala. Vedere fixa 2D. Doar setari pentru stand curs TIA Portal.<br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
       </p>
       <p>
         <i>Proiecte bazate pe Qt5, utilizand Snap7 (de Davide Nardella).</i><br>
@@ -217,7 +231,7 @@
         <b>Cam410s</b> este un mic simulator a instalatiei utilizate la cursurile (cu acces remote/online) TIA Safety ...<br>
         <br>
       </p>
-      <p class="mono">
+      <p>
         Versiuni:<br>
         - v230124 [24.01.2023] Grafica imbunatatita.<br>
         - v221017 [17.10.2022] Fereastra scalabila. Imbunatatiri functionale. Corectare erori.<br>
@@ -261,7 +275,7 @@
         -  O_[n]=%I4.0<br>
         Valoarea M20.0 este transferata automat in I4.0<br>
       </p>
-      <p class="mono">
+      <p>
         Versions:<br>
         - v220330 [30.03.2022] Corectat 'bug' "crash on downloading PLC program".<br>
         - v210104 [04.01.2021] Prima versiune functionala.<br>

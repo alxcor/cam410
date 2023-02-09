@@ -15,6 +15,10 @@ Cam410 may be connected to a real Step7 300 or Step7 1500 PLC using a TCP/IP con
 The simulated conveyor is controlled by the outputs of the PLC, the conveyor band may be moved in both directions traversing the parts placed on the band.
 A click with the mouse on any button of the simulated conveyor sets the corresponding input in the connected PLC.
 
+
+Press Settings button and select a template for addresses: TIA training template or ST (Step7 Classic) template.
+
+
 Versions:
 - v230124 [24.01.2023] Cam410T: Fork of Cam410C based on Cam410C v230124. First version with 3D simulation.
 ![header](/docs/images/cam410_30.png)
@@ -38,7 +42,7 @@ Versions:
 ![header](/docs/images/cam410_20.png)
 
 
-Projects build on Qt5, using Snap7 (by Davide Nardella).
+*Projects build on Qt5, using Snap7 (by Davide Nardella).*
 
 ## Cam410S, Cam410hlp
 ### Simulator for TIA SAFETY

@@ -168,7 +168,7 @@
       <p><b>Cam410</b> is a small series of programs used to simulate the conveyor used in remote/online Sitrain (Step7 and TIA) courses ...</p>
     </li>
     <li id="cam410">
-      <h2>Cam410, Cam410C, Cam410T</h2>
+      <h2>Cam410, Cam410C, Cam410D</h2>
       <h3>Simulator for TIA Pro, TIA Serv, Step7 Pro, Step7 Serv, etc...</h3>
       <p>
         <b>Cam410</b> is a small simulator for the conveyor band used in Siemens SITRAIN courses.<br>
@@ -178,10 +178,26 @@
         A click with the mouse on any button of the simulated conveyor sets the corresponding input in the connected PLC.<br>
         <br>
       </p>
-      <p class="mono">
-        Versions:<br>
-        - v230124 [24.01.2023] Cam410T: Fork of Cam410C based on Cam410C v230124. First version with 3D simulation.<br>
+      <p>
+        <b>Help:</b><br>
+        <br>
+        <b>Settings:</b> Press Settings button and select a template for addresses: TIA training template or ST (Step7 Classic) template.<br>
+        Sett also the addresses for Inputs and Outputs according to the real training stand.<br>
+        Sett the TCP/IP address of the target PLC and the Rack and Slot position of the CPU: usual values are Rack0 Slot0 for S7-1500 and Rack0 Slot2 for S7-300.<br>
+        <br>
+        <b>Scene selection: Select a simulation view from a predefined list:</b><br><br>
+        Scene3: a 3D simulation of the conveyor.<br><br>
         <img alt="Cam410" title="Cam410" src="images/cam410_30.png" width=100%>
+        <br><br>
+        Scene2: a 2.5D simulation of the conveyor.<br><br>
+        <img alt="Cam410" title="Cam410" src="images/cam410_25.png" width=100%>
+        <br><br>
+        Scene1: a 2D simulation of the conveyor.<br><br>
+        <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
+      </p>
+      <p>
+        Versions:<br>
+        - v230124 [24.01.2023] Cam410D: Fork of Cam410C based on Cam410C v230124. First version with 3D simulation.<br>
         - v230124 [24.01.2023] Cam410C: Improved icons and graphics.<br>
         - v221025 [25.10.2022] Cam410C: Bug Fixes (template activation error, etc.)<br>
         - v220321 [21.03.2022] Cam410C: Minor interface changes.<br>
@@ -191,15 +207,13 @@
         - v210509 [09.05.2021] Cam410C: Test on a common version for both TIA Portal and S7-300 training racks.<br>
         - v210407 [07.04.2021] Cam410C [Classic] [for S7-300]: Fork of Cam410. Adapted for S7-300 training rack.<br>
         - v210301 [01.03.2021] Cam410: Checkbox for quick change of addresses S7-1500 to ET200SP. Last version of Cam410. Replaced by Cam410C from Cam410C v210509<br>
-        - v210123 [23.01.2021] Cam410T: Initial test for a 3D simulation based on OpenGL. Version only for tests, not functional.<br>
+        - v210123 [23.01.2021] Cam410D: Initial test for a 3D simulation based on OpenGL. Version only for tests, not functional.<br>
         - v201204 [04.12.2020] Cam410 [zip201215]: PID control simulation. Corrected some fonts, added scalability (fixed sizes).<br>
         - v201112 [12.11.2020] Cam410 [zip201201]: Change of analog inputs scale...<br>
         - v201029 [29.10.2020] Monitrain [zip201106]: Control code added on connectivity...<br>
         - v201017 [17.10.2020] Monitrain: 2.5D view added. Various functional improvements and bug fixes.<br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_25.png" width=100%>
         - v200514 [14.05.2020] Monitrain: Animation speed control. Editable texts for button labels.<br>
         - v200428 [28.04.2020] Monitrain: First functional version. 2D fixed size. Set for TIA Portal training rack.<br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
       </p>
       <p>
         <i>Projects build on Qt5, using Snap7 (by Davide Nardella).</i><br>
@@ -217,7 +231,7 @@
         <b>Cam410s</b> is a small simulator of the "labeling machine" used during the "TIA Safety" training...
         <br>
       </p>
-      <p class="mono">
+      <p>
         Versions:<br>
         - v230124 [24.01.2023] Improved icons and graphics.<br>
         - v221017 [17.10.2022] Variable window size. Functional improvements. Bug fixes.<br>
@@ -261,7 +275,7 @@
         -  O_[n]=%I4.0<br>
         The M20.0 value is automatically transferred to I4.0<br>
       </p>
-      <p class="mono">
+      <p>
         Versions:<br>
         - v220330 [30.03.2022] Fixed "crash on downloading PLC program".<br>
         - v210104 [04.01.2021] First functional version.<br>
