@@ -42,7 +42,7 @@ Versions:
 ![header](/docs/images/cam410_20.png)
 
 
-*Projects build on Qt5, using Snap7 (by Davide Nardella).*
+*Projects build on Qt5, using Snap7.*
 
 ## Cam410S, Cam410hlp
 ### Simulator for TIA SAFETY
