@@ -15,12 +15,24 @@ Cam410 may be connected to a real Step7 300 or Step7 1500 PLC using a TCP/IP con
 The simulated conveyor is controlled by the outputs of the PLC, the conveyor band may be moved in both directions traversing the parts placed on the band.
 A click with the mouse on any button of the simulated conveyor sets the corresponding input in the connected PLC.
 
+**Help**
 
 Press Settings button and select a template for addresses: TIA training template or ST (Step7 Classic) template.
 
+Sett also the addresses for Inputs and Outputs according to the real training stand.
+
+Sett the TCP/IP address of the target PLC and the Rack and Slot position of the CPU: usual values are Rack0 Slot0 for S7-1500 and Rack0 Slot2 for S7-300.
+
+**Scene selection: Select a simulation view from a predefined list:**
+
+- Scene3: a 3D simulation of the conveyor.
+- Scene2: a 2.5D simulation of the conveyor.
+- Scene1: a 2D simulation of the conveyor.
+
 
 Versions:
-- v230124 [24.01.2023] Cam410T: Fork of Cam410C based on Cam410C v230124. First version with 3D simulation.
+- v230629 [29.06.2023] Cam410D: Minor bug fixes. Small changes of the 3D simulator.
+- v230124 [24.01.2023] Cam410D: Fork of Cam410C based on Cam410C v230124. First version with 3D simulation.
 ![header](/docs/images/cam410_30.png)
 - v230124 [24.01.2023] Cam410C: Improved icons and graphics.
 - v221025 [25.10.2022] Cam410C: Bug Fixes (template activation error, etc.)
@@ -42,7 +54,10 @@ Versions:
 ![header](/docs/images/cam410_20.png)
 
 
-*Projects build on Qt5, using Snap7.*
+*- The project uses Snap7 under LGPL3 Licence to communicate with the Sinumerik/Sinamics/Step7 equipment.*
+*- The project uses Qt under LGPL3 Licence.*
+*- The project may also use S7ONLINE interface if the DLL file is provided by user and a licence is activated.*
+
 
 ## Cam410S, Cam410hlp
 ### Simulator for TIA SAFETY
