@@ -36,7 +36,7 @@ Versions:
 ![header](/docs/images/cam410_30.png)
 - v230124 [24.01.2023] Cam410C: Improved icons and graphics.
 - v221025 [25.10.2022] Cam410C: Bug Fixes (template activation error, etc.)
-- v220321 [21.03.2022] Cam410C: Interface changes. Added Settings editor (set texts for buttons, type of NC/NO contact for I0.0, BCD coders for S7), templates for TIA and Step7 trainings, simulator for TIA-PRO1 and TIA-PRO2 final state of the PLC.
+- v220321 [21.03.2022] Cam410C: Interface changes. Added Settings editor (set texts for buttons, type of NC/NO contact for I0.0, BCD coders for S7), templates for TIA and Step7 training, simulator for TIA-PRO1 and TIA-PRO2 final state of the PLC.
 - v220117 [17.01.2022] Cam410C: Improved graphics and functional improvements regarding simulation speed.
 - v210524 [24.05.2021] Cam410C: Variable window size.
 - v210511 [11.05.2021] Cam410C: Test for a variable window size.
@@ -54,9 +54,9 @@ Versions:
 ![header](/docs/images/cam410_20.png)
 
 
-*- The project uses Snap7 under LGPL3 Licence to communicate with the Sinumerik/Sinamics/Step7 equipment.*
-*- The project uses Qt under LGPL3 Licence.*
-*- The project may also use S7ONLINE interface if the DLL file is provided by user and a licence is activated.*
+*- The project uses Snap7 under LGPL3 License to communicate with the Sinumerik/Sinamics/Step7 equipment.*
+*- The project uses Qt under LGPL3 License.*
+*- The project may also use S7ONLINE interface if the DLL file is provided by user and a license is activated.*
 
 
 ## Cam410S, Cam410hlp
@@ -79,7 +79,7 @@ Versions:
 **Cam410hlp** is a small C# application used to control the "Safety Inputs" of a simulated PLC.
 
 Safety inputs are protected in the PLC and their value cannot be written from an external application.
-PLC simulators such as PLCSIM Advanced maintain also this behaviour so that Safety Inputs remain protected.
+PLC simulators such as PLCSIM Advanced maintain also this behavior so that Safety Inputs remain protected.
 Because of this, even when using S7-PLCSIM or S7-PLCSIM Advanced simulators, Cam410s can read both "standard" and "safety" PLC outputs, can write the "standard" PLC inputs but can not write "safety" PLC inputs values.
 
 Cam410hlp is using PLCSIM Advanced API interface to help Cam410s control "safety" inputs of the simulated PLC.
