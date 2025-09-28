@@ -31,6 +31,8 @@ Sett the TCP/IP address of the target PLC and the Rack and Slot position of the 
 
 
 Versions:
+- v250426 [26.04.2025] Cam410D: v32-bit using Qt5.12.9 and v64-bit using Qt6.8.0. Minor fixes for compatibility with 64-bit version.
+- v240928 [28.09.2024] Cam410D: 
 - v230629 [29.06.2023] Cam410D: Minor bug fixes. Small changes of the 3D simulator.
 - v230124 [24.01.2023] Cam410D: Fork of Cam410C based on Cam410C v230124. First version with 3D simulation.
 ![header](/docs/images/cam410_30.png)
