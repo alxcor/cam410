@@ -1,439 +1,515 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="Sitrain simulator, Step7 conveyor, Totally Integrated Automation, conveyor, Siemens training simulator, Siemens remote training">
-  <meta name="description" content="Simulator Conveyor pentru cursurile Sitrain">
-  <title>Cam410 Ajutor</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 100%;
-      color: #000000;
-      background-color: #FFFFFF;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Sitrain simulator, Step7 conveyor, Totally Integrated Automation, conveyor, Siemens training simulator, Siemens remote training">
+    <meta name="description" content="Simulator Conveyor pentru cursurile Sitrain">
+    <title>Cam410 Help</title>
+    <style>
+    html {
+        scroll-behavior: smooth;
     }
-    h1 { font-family: Garamond, serif; font-size: 2.5rem; }
-    h2 { font-family: Garamond, serif; font-size: 1.875rem; }
-    h3 { font-family: Garamond, serif; font-size: 1.3rem; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #004080; }
-    tr:nth-child(odd) { background-color: rgba(120, 120, 170, 0.4); }
-    /* Logo: data/versiune; titlu; subtitlu */
-    .logo1p {
-      margin: 5px 10px 0px 15px;
-      font-size: 0.8rem;
-      line-height: 10px;
-      text-align: right;
-      color: #90909F;
+    :root {
+        --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        --bg-app: #f5f6f8;
+        --bg-surface: #ffffff;
+        --bg-header:  #ffffff;
+        --bg-toolbar: #303050;
+        --bg-toolbar-grad: linear-gradient(to left, #00000F, #505070);
+        --text-main: #202124;
+        --text-muted: #5f6368;
+        --text-toolbar: #e3e3e3;
+        --border-color: #dadce0;
+        --accent-color: #1a73e8;
+        --hover-color: rgba(255, 255, 255, 0.15);
+        --table-color: #000000;
+        --table-bgcol: #ffffff;
     }
-    .logo2p { 
-      margin: -10px 10px 0px 15px;
-      font-family: Arial;
-      font-size: 3rem;
-      line-height: 50px;
-      text-align: left;
-      color: #303050;
-    }
-    .logo3p {
-      margin: -20px 10px 0px 100px;
-      font-size: 2.5rem;
-      line-height: 35px;
-      text-align: left;
-      color: #90909F;
-    }
-    /* Bara meniu orizontal: setari fundal */
-    .menu_bar {
-      display: flex; flex-direction: row;
-      align-items: center;
-      color: #90909F;
-      background-color: #303050; /* ignorata */
-      background: linear-gradient(to left, #00000F, #505070);
-      height: 50px;
-      position: sticky;
-      top: 0;
-      padding: 0;
-    }
-    /* Bara meniu orizontal: Container Buton Meniu */
-    .menu_ctn {
-      display: none;
-      height: 100%;
-      width: 60px;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    /* Bara meniu orizontal: Buton Meniu */
-    .menu_btn, .menu_btn::before, .menu_btn::after {
-      display: block;
-      background-color: #90909F;
-      position: absolute;
-      height: 4px;
-      width: 30px;
-      border-radius: 2px;
-      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .menu_btn::before { content: ''; margin-top: -8px; }
-    .menu_btn::after  { content: ''; margin-top:  8px; }
-    #menu_tog { display: none; }
-    #menu_tog:checked + .menu_ctn .menu_btn { background: transparent; }
-    #menu_tog:checked + .menu_ctn .menu_btn::before { margin-top: 0; transform: rotate(45deg); }
-    #menu_tog:checked + .menu_ctn .menu_btn::after  { margin-top: 0; transform: rotate(-45deg); }
-    /* Bara meniu orizontal: lista orizontala */
-    .menu_lst {
-      display: flex;
-      flex-direction: row;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-    /* Bara meniu orizontal: setari elemente lista li */
-    .menu_lst > li { margin: 0; overflow: hidden; }
-    .menu_lst li:hover { background: #303040; }
-    .menu_lst li.active { background-color: #6060A0; }
-    /* Bara meniu orizontal: setari aliniat li */
-    .menu_lst li a {
-      display: block;
-      color: #F4F4FF;
-      background: transparent;
-      border: none;
-      text-align: left;
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 14px;
-    }
-    .menu_lst li a:hover{ background-color: #404040;}
-    .menu_lst li button {
-      display: block;
-      color: #F4F4FF;
-      background: transparent;
-    /*  border: none; */
-      text-align: left;
-      text-decoration: none;
-      font-size: 1rem;
-    /*  padding: 5px 5px; */
-    }
-    .menu_lst li button:hover{ background-color: #404040; }
-    .menu_lst li button:hover .tooltiptext { visibility: visible; }
-    /* ToolTips */
-    .tooltiptext {
-      visibility: hidden;
-      width: 130px;
-      background-color: black;
-      color: #fff;
-      text-align: center;
-      border-radius: 3px;
-      padding: 5px 0;
-      position: absolute;
-      z-index: 1;
-      top: -15px;
-    }
-    /* Element principal tip 1 */
-    .elem_top {
-      background: url("images/header.png") center;
-      background-size: cover;
-      padding: 0rem 2rem;
-      padding-bottom: 10rem;
-      display: grid;
-      align-items: center;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-    .elem_top > * { color: white; }
-    .elem_top > h1 {
-      font-size: 3rem;
-      padding-bottom: 0.5rem;
-      background-color: rgba(0,0,0,0.5);
-      color: #F0F0FF;
-    }
-    /* Element principal tip 2 */
-    .elem_tos { padding: 0rem; margin: 0rem; }
-    .elem_tos > figure {
-      height: 340px;
-      overflow: hidden;
-      margin:0rem;
-    }
-    /* Element lista 2*/
-    .elem_lst { padding: 0.2rem; margin 0.2rem; }
-    .elem_lst > ul {
-      list-style-type: none;
-      display: list-item;
-      grid-gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      padding: 0.2rem;
-    }
-    .elem_lst > ul > li {
-      border: 0px solid #90909F;
-      border-bottom: 1px solid #90909F;
-    }
-    .elem_lst > ul > li > figure {
-      height: 200px;
-      overflow: hidden;
-      margin:0.1rem;
-    }
-    .elem_lst > ul > li > figure > img { width: 100%; }
-    .elem_lst > ul > li > figure > figcaption {
-      position: absolute;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.7);
-      width: 100%;
-    }
-    .elem_lst > ul > li > figure > figcaption > h3 {
-      color: white;
-      padding: .75rem;
-      font-size: 1.25rem;
-    }
-    .elem_lst > ul > li > p {
-      font-size: 1rem;
-      line-height: 1.1rem;
-      padding: 0.2rem 0.2rem;
-      /* color: #90909F; */
-    }
-    .elem_lst > ul > li > p > a {
-      font-size: 0.8rem;
-      line-height: 1;
-      text-decoration: none;
-      text-align: center;
-      padding: 0.5rem;
-      color: #FFFFFF;
-      background-color: #40404F;
-      border-radius: .25rem;
-      display: inline-block;
-    }
-    .mono { font-family: monospace; margin-left: 20px; }
-    .par1 { margin-left: 20px; }
-    .maxp { max-width: 100%; }
-
-    .footer {
-      background-color: #40404F;
-      color: white;
-      padding: .25rem;
-      text-align: right;
-      font-size: .5rem;
-    }
-    @media (max-width: 800px) {
-      .menu_ctn { display: flex; }
-      #menu_tog ~ .menu_lst li {
-        height: 0;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-      }
-      #menu_tog:checked ~ .menu_lst li {
-        border: 1px solid #30303F;
-        height: 2.5rem;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-      }
-      .menu_lst {
-        position: absolute;
-        top: 0;
-        margin-top: 50px;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-      }
-      .menu_lst > li {
-        display: flex;
-        justify-content: left;
-        margin: 0;
-        padding: 0.5rem 0;
-        width: 100%;
-        color: white;
-        background-color: #10102F;
-      }
-    }
-    .darkmode {
-      @media (prefers-color-scheme: light) {
-        color: #FFFFFF; background-color: #000000;
-      }
-      @media (prefers-color-scheme: dark) {
-        color: #000000; background-color: #FFFFFF;
-      }
-    }
-    @media (prefers-color-scheme: light) {
-      body {color: #000000; background-color: #FFFFFF;}
-      table, td, th {color: #000000}
+    body.dark {
+        --bg-app: #121212;
+        --bg-surface: #1e1e1e;
+        --bg-header:  #1e1e1e;
+        --text-main: #e3e3e3;
+        --text-muted: #9aa0a6;
+        --border-color: #3c4043;
+        --accent-color: #8ab4f8;
+        --table-color: #ffffff;
+        --table-bgcol: #1e1e1e;
     }
     @media (prefers-color-scheme: dark) {
-      body {color: #FFFFFF; background-color: #000000;}
-      table, td, th {color: #FFFFFF}
+        body:not(.light) {
+            --bg-app: #121212;
+            --bg-surface: #1e1e1e;
+            --bg-header:  #1e1e1e;
+            --text-main: #e3e3e3;
+            --text-muted: #9aa0a6;
+            --border-color: #3c4043;
+            --accent-color: #8ab4f8;
+            --table-color: #ffffff;
+            --table-bgcol: #1e1e1e;
+        }
     }
-  </style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: var(--font-stack);
+        background-color: var(--bg-app);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    a {
+        color: var(--accent-color);
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .app-header {
+        background-color: var(--bg-header);
+        border-bottom: 1px solid var(--border-color);
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-title-group {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .logo-main {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+    .logo-sub {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--text-muted);
+    }
+    .version-badge {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        padding: 4px 8px;
+        background: var(--hover-color);
+        border-radius: 4px;
+    }
+    .toolbar {
+        background: var(--bg-toolbar-grad);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 6px 16px;
+        gap: 6px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .toolbar-group {
+        display: flex;
+        gap: 4px;
+    }
+    .toolbar a, .toolbar button {
+        background: transparent;
+        border: none;
+        border-radius: 4px;
+        color: var(--text-toolbar);
+        min-width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+        padding: 4px 10px;
+        font-size: 0.9rem;
+        text-decoration: none;
+    }
+    .toolbar a:hover, .toolbar button:hover {
+        background-color: var(--hover-color);
+        text-decoration: none;
+    }
+    .toolbar a img, .toolbar button img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        pointer-events: none;
+    }
+    .toolbar .divider {
+        width: 1px;
+        height: 20px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 0 4px;
+    }
+    .tooltip {
+        position: relative;
+    }
+    .tooltip::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: 125%;
+        left: 50%;
+        transform: translateX(-50%) scale(0.85);
+        transform-origin: top center;
+        background-color: #212121;
+        color: #ffffff;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        transition: opacity 0.15s ease, transform 0.15s ease;
+        z-index: 9999;
+    }
+    .tooltip:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+    .hero-banner {
+        background: url("images/header.png") no-repeat top center;
+        background-size: cover;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 2rem;
+    }
+    .hero-text-box {
+        background-color: rgba(0, 0, 0, 0.65); 
+        padding: 1rem 2.5rem; 
+        border-radius: 2px; 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    }
+    .hero-text-box h2 {
+        color: #ffffff;
+        font-size: 2.5rem;
+        margin: 0;
+    }
+    .main-content {
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        flex: 1;
+    }
+    .apps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2rem;
+    }
+    .card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+        color: var(--accent-color);
+    }
+    .card h3 {
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+    }
+    .card p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 1rem;
+    }
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+        color: #FFFFFF;
+        background-color: #40404F;
+        border-radius: 0.25rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+    }
+    .btn:hover {
+        background-color: var(--accent-color);
+        text-decoration: none;
+    }
+    .media-block {
+        margin: 1.5rem 0;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+    }
+    .media-block img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .feature-list {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .feature-list li {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    pre {
+        background: rgba(0, 0, 0, 0.04);
+        border-left: 3px solid var(--accent-color);
+        padding: 12px;
+        border-radius: 4px;
+        margin: 1rem 0;
+        overflow-x: auto;
+    }
+    body.dark pre {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    code {
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        font-size: 0.9rem;
+    }
+    .footer {
+        background-color: var(--bg-surface);
+        border-top: 1px solid var(--border-color);
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: auto;
+    }
+    .help-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 6px 16px;
+        gap: 6px;
+    }
+    .help-section img {
+        max-width: 100%;
+        height: auto;
+    }
+    .feature-overview-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .overview-sub-card.media-block {
+        width: 100%;
+        max-width: 100%; 
+        margin: 0;
+    }
+    .overview-sub-card.media-block img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    @media (min-width: 500px) {
+        .feature-overview-container {
+            grid-template-columns: minmax(300px, max-content) 1fr;
+            align-items: start;
+        }
+       .apps-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+           gap: 2rem;
+       }
+    }
+    </style>
 </head>
-<!-- START BODY ... -->
-<body>
-  <!-- START Header Area ... -->
-  <a name="#top"> </a>
-  <div class="logo1p" align="center">v24.01.21; Ian.2024</div>
-  <div class="logo2p" align="center"><b>Cam410</b></div>
-  <div class="logo3p" align="center"><b>Ajutor</b></div>
-  <!-- END Header Area ... -->
-  <!-- START Menu Bar ... -->
-  <section class="menu_bar">
-    <input id="menu_tog" type="checkbox" />
-    <label class='menu_ctn' for="menu_tog">
-      <div class='menu_btn'></div>
-    </label>
-    <ul class="menu_lst">
-      <li><a href="http://alxcor.github.io/index.html" style="padding: 4px;"><img src="images/ico_home.png" alt="Acasa" width="35" height="35"></a></li>
-      <li><a href="index.html" style="padding: 4px;"><img src="images/ico_lang.png" alt="English" width="35" height="35"></a></li>
-      <li><a style="padding: 4px;"><img src="images/ico_dark.png" alt="Fundal" width="35" height="35" onclick="changetodark()"></a></li>
-      <li><a>Github</a></li>
-      <li><a href="#cam410">S7_Pro/Serv</a></li>
-      <li><a href="#cam410">TIA_Pro/Serv</a></li>
-      <li><a href="#cam410s">Safety</a></li>
-    </ul>
-  </section>
-<!-- END Menu Bar ... -->
-<!-- START Main Area ... -->
-<section class="elem_top">
-  <h1>Cam410</h1>
-</section>
-<br>
-<section class="elem_lst">
-  <ul>
-    <li id="cam410x">
-      <p><b>Cam410</b> este o serie de programe ce pot fi utilizate pentru simularea (inlocuirea) benzii transportoare utilizate la cursurile Sitrain (Step7 si TIA) ...</p>
-    </li>
-    <li id="cam410">
-      <h2>Cam410, Cam410C, Cam410D</h2>
-      <h3>Simulator pentru TIA Pro, TIA Serv, Step7 Pro, Step7 Serv, etc...</h3>
-      <p>
-        <b>Cam410</b> este un mic simulator pentru banda transportoare utilizata la cursurile Siemens SITRAIN.<br>
-        <br>
-        <b>Cam410</b> poate fi conectat la un PLC real Step7 300 sau Step7 1500 PLC utilizand o conexiune TCP/IP, Profibus sau MPI.<br>
-        Simulatorul este controlat de catre iesirile PLC, banda transportoare poate fi deplasata in ambele directii impreuna cu eventualele piese aflate pe banda.<br>
-        Apasarea (click stanga cu mouse) oricarui buton de pe instalatia simulata seteaza intrarea corespunzatoare din PLC-ul conectat.<br>
-        <br>
-      </p>
-      <p>
-        <b>Ajutor:</b><br>
-        <br>
-        <b>Setari:</b> Apasati butonul Setari si selectati un model pentru intrari: template pentru cursuri TIA sau ST (Step7 Classic).<br>
-        Setati si adresele pentru Intrari si Iesiri standului real de curs.<br>
-        Setati adresa TCP/IP a PLC si numerele de Rack si Slot a pozitiei CPU pe stand: valori uzuale sunt Rack0 Slot0 pentru S7-1500 si Rack0 Slot2 pentru S7-300.<br>
-        <br>
-        <b>Selectie scena: Selectati o vedere pentru simulare din lista:</b><br><br>
-        Scena3: o simulare 3D a benzii transportoare.<br><br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_30.png" width=100%>
-        <br><br>
-        Scena2: o simulare 2.5D a benzii transportoare.<br><br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_25.png" width=100%>
-        <br><br>
-        Scena1: o simulare 2D a benzii transportoare.<br><br>
-        <img alt="Cam410" title="Cam410" src="images/cam410_20.png" width=100%>
-      </p>
-      <p>
-        Versiuni:<br>
-        - v230629 [29.06.2023] Cam410D: Corectie erori minore. Mici modificari ale simulatorului 3D.<br>
-        - v230124 [24.01.2023] Cam410D: 'Fork' a Cam410C bazat pe Cam410C v230124. Prima versiune cu simulare 3D.<br>
-        - v230124 [24.01.2023] Cam410C: Grafica imbunatatita.<br>
-        - v221025 [25.10.2022] Cam410C: Corectare erori (eroare la activare template, etc.)<br>
-        - v220321 [21.03.2022] Cam410C: Mici imbunatatiri la interfata.<br>
-        - v220117 [17.01.2022] Cam410C: Grafica si functionalitate imbunatatite referitor la viteza de simulare.<br>
-        - v210524 [24.05.2021] Cam410C: Fereastra scalabila.<br>
-        - v210511 [11.05.2021] Cam410C: Teste pentru scalare fereastra.<br>
-        - v210509 [09.05.2021] Cam410C: Test pentru o versiune comuna atat pentru standurile de TIA Portal cat si pentru cele cu S7-300.<br>
-        - v210407 [07.04.2021] Cam410C [Classic] [pt. S7-300]: 'Fork' a Cam410. Adaptat pentru cursurile S7-300.<br>
-        - v210301 [01.03.2021] Cam410: 'Checkbox' pentru comutare rapida a adreselor intre S7-1500 si ET200SP. Ultima versiune Cam410. Inlocuit de Cam410C de la Cam410C v210509<br>
-        - v210123 [23.01.2021] Cam410D: Teste initiale o simulare 3D bazata pe OpenGL. Versiune de test, ne-functionala.<br>
-        - v201204 [04.12.2020] Cam410 [zip201215]: Simulare control PID. Corecturi referitoare la fonturi, scalabilitate (cateva dimensiuni fixe).<br>
-        - v201112 [12.11.2020] Cam410 [zip201201]: Modificare scalare intrari analogice...<br>
-        - v201029 [29.10.2020] Monitrain [zip201106]: Adaugare cod control pentru conectivitate...<br>
-        - v201017 [17.10.2020] Monitrain: Adaugare vedere 2.5D. Diverse imbunatatiri referitoare la grafica si functionalitate.<br>
-        - v200514 [14.05.2020] Monitrain: Posibilitate de control a vitezei de animatie. Textele butoanelor sunt editabile.<br>
-        - v200428 [28.04.2020] Monitrain: Prima versiune functionala. Vedere fixa 2D. Doar setari pentru stand curs TIA Portal.<br>
-      </p>
-      <p>
-        <i>Proiectul utilizeaza Snap7 sub licenta LGPL3 pentru comunicatia cu echipamentul Sinumerik/Sinamics/Step7.</i><br>
-        <i>Proiectul utilizeaza Qt sub licenta LGPL3.</i><br>
-        <i>Proiectul poate utiliza interfata S7ONLINE daca biblioteca DLL este copiata in directorul executabilului si licenta pentru aceasta este activata.</i><br>
-        <br>
-        <br>
-        <a>Cod pe GitHub...</a>
-        <a>Cam410 download ...</a>
-      </p>
-    </li>
-    <li id="cam410s">
-      <h2>Cam410S, Cam410hlp: Simulator pentru TIA Safety</h2>
-      <h3>Cam410S</h3>
-      <p>
-        <img alt="Cam410s" title="TIA Safety" src="images/cam410s_20.png" width=100%>
-        <br><br>
-        <b>Cam410s</b> este un mic simulator a instalatiei utilizate la cursurile (cu acces remote/online) TIA Safety ...<br>
-        <br>
-      </p>
-      <p>
-        Versiuni:<br>
-        - v230124 [24.01.2023] Grafica imbunatatita.<br>
-        - v221017 [17.10.2022] Fereastra scalabila. Imbunatatiri functionale. Corectare erori.<br>
-        - v220222 [22.02.2022] Versiune noua pentru standul de scolarizare TIA Portal Safety v16/17. Diverse imbunatatiri functionale. Corectare erori.<br>
-        - v210119 [19.01.2021] Corectare erori.<br>
-        - v201204 [04.12.2020] [zip201218] Teste initiale. 2.5D cu dimensiune fixa. Setat pentru standul TIA Portal Safety v15.<br>
-      </p>
-      <h3>Cam410hlp</h3>
-      <p>
-        <b>Cam410hlp</b>: este o aplicatie C# utilzata pentru controlul intrarilor "Safety Inputs" ale unui PLC simulat.<br>
-        <br>
-        Intrarile de tip Safety sunt protejate in PLC si valorile lor nu pot fi scrise din aplicatii externe conectate la PLC.<br>
-        Simulatoarele PLC precum PLCSIM Advanced pastreaza acest comportament astfel incat Intrarile de tip Safety raman protejate.<br>
-        Din acest motiv, chiar si atunci cand sunt utilizate simulatoarele S7-PLCSIM sau S7-PLCSIM Advanced, Cam410s poate citi atat iesirile PLC "standard" si "safety",
-        poate scrie intrarile PLC "standard" dar nu poate scrie valori pentru intrarile PLC "safety".<br><br>
-        Cam410hlp foloseste interfata API a PLCSIM Advanced pentru a ajuta aplicatia Cam410s sa controleze starea intrarilor "safety" pentru un PLC simulat.<br><br>
-      </p>
-      <p>
-        Ajutor:<br>
-        Programul se conecteaza automat la prima instanta deschisa in PLCSim Advanced<br>
-        - Daca PLCSim Advanced nu este instalat programul nu ruleaza (sau 'crapa', nu stiu).<br>
-        - Daca nu este activa nici o instanta programul asteapta initializarea unei instante.<br>
-        - Daca sunt mai multe instante active, se conecteaza la prima dintre ele (instanta 0).<br>
-        - Daca instanta 0 este inchisa se conecteaza automat la urmatoarea instanta, daca exista.<br>
-        <br><br>
-        Programul citeste din fisierul cam410hlp.ini perechi de adrese:<br>
-        -  I_[n]=<br>
-        -  O_[n]=<br>
-        <br>
-        Adresele pot fi absolute (cu % ca prim caracter) sau de tip "Tag PLC" (fara % ca prim caracter).<br>
-        <br>
-        Adresele absolute pot fi doar I, M, Q si doar Bool sau Byte.<br>
-        Exemple pt. Bool: %I0.0, %M2.7, %Q12.3<br>
-        Exemple pt. Byte: %MB10, %IB12, %QB20<br>
-        <br>
-        Adresele simbolice, de tip "Tag PLC", trebuie sa existe in tabelele de Tag-uri din PLC, programul verifica lista la conectare.<br>
-        <br>
-        Dupa conectarea la instanta PLCSim Advanced, valoarea parametrului I_[n] este transferata in O_[n], daca e posibil.<br>
-        Sunt transferate valori doar intre parametri de acelasi tip sau compatibili:<br>
-        -  I_[n]=%M20.0<br>
-        -  O_[n]=%I4.0<br>
-        Valoarea M20.0 este transferata automat in I4.0<br>
-      </p>
-      <p>
-        Versions:<br>
-        - v220330 [30.03.2022] Corectat 'bug' "crash on downloading PLC program".<br>
-        - v210104 [04.01.2021] Prima versiune functionala.<br>
-      </p>
-      <p>
-        <br>
-        <a>Cod pe GitHub...</a>
-        <a>Cam410s download ...</a>
-        <a>Cam410hlp download ...</a>
-      </p>
-    </li>
-  </ul>
-</section>
-<!-- END Main Area ... -->
-<section class="footer">
-  alxcor@yahoo.com
-</section>
-<script>
-  function changetodark() {
-    var element = document.body;
-    element.classList.toggle("darkmode");
-  }
-</script>
-</body></html>
+<body id="top">
+    <header class="app-header">
+        <div class="header-title-group">
+            <h1 class="logo-main">Cam410</h1>
+            <h2 class="logo-sub">ajutor</h2>
+        </div>
+        <div class="version-badge">v24.01.21; Ian.2024</div>
+    </header>
+    <nav class="toolbar">
+        <div class="toolbar-group">
+            <a href="http://alxcor.github.io/index.html" class="tooltip" data-tooltip="Acasa">
+                <img src="images/ico_home.png" alt="Acasa">
+            </a>
+            <a href="index.html" class="tooltip" data-tooltip="Language">
+                <img src="images/ico_lang.png" alt="Language">
+            </a>
+            <button id="bt_dark" type="button" class="tooltip" data-tooltip="Toggle Theme">
+                <img src="images/ico_dark.png" alt="Theme">
+            </button>
+        </div>
+        <div class="divider"></div>
+        <div class="toolbar-group">
+            <a href="http://github.com/alxcor/cam410" target="_blank" class="tooltip" data-tooltip="GitHub Repository">Cod Sursa</a>
+        </div>
+        <div class="divider"></div>
+        <div class="toolbar-group">
+            <a href="#top">Top</a>
+        </div>
+        <div class="divider"></div>
+        <div class="toolbar-group">
+            <a href="#cam410d-section">S7/TIA Pro/Serv</a>
+            <a href="#cam410s-section">Safety</a>
+        </div>
+    </nav>
+    <section class="hero-banner">
+        <div class="hero-text-box">
+            <h2>Cam410</h2>
+        </div>
+    </section>
+    <main class="main-content">
+        <section class="card">
+            <p><strong>Cam410</strong> este o serie de programe ce pot fi utilizate pentru simularea (inlocuirea) benzii transportoare utilizate la cursurile Sitrain (Step7 si TIA) ...</p>
+            <div class="btn-group">
+                <a href="http://github.com/alxcor/cam410" target="_blank" class="btn">Project on GitHub</a>
+            </div>
+        </section>
+        <section class="card" id="cam410d-section">
+            <h2>Cam410, Cam410C, Cam410D</h2>
+            <h3>Simulator pentru TIA Pro, TIA Serv, Step7 Pro, Step7 Serv, etc...</h3>
+            <p><strong>Cam410</strong> este un mic simulator pentru banda transportoare utilizata la cursurile Siemens SITRAIN.<br>
+            Cam410 poate fi conectat la un PLC real Step7 300 sau Step7 1500 PLC utilizand o conexiune TCP/IP, Profibus sau MPI.<br>
+            Simulatorul este controlat de catre iesirile PLC, banda transportoare poate fi deplasata in ambele directii impreuna cu eventualele piese aflate pe banda.<br>
+            Apasarea (click stanga cu mouse) oricarui buton de pe instalatia simulata seteaza intrarea corespunzatoare din PLC-ul conectat.<br>
+            </p>
+            <h3>Ajutor:</h3>
+            <p><strong>Setari:</strong> Apasati butonul Setari si selectati un model pentru intrari: template pentru cursuri TIA sau ST (Step7 Classic).<br>
+            Setati si adresele pentru Intrari si Iesiri standului real de curs.<br>
+            Setati adresa TCP/IP a PLC si numerele de Rack si Slot a pozitiei CPU pe stand: valori uzuale sunt Rack0 Slot0 pentru S7-1500 si Rack0 Slot2 pentru S7-300.<br>
+            </p>
+            <p><strong>Selectie scena:</strong> Selectati o vedere pentru simulare din lista:</p>
+            
+            <p>Scena3: o simulare 3D a benzii transportoare.</p>
+            <div class="media-block">
+                <img alt="Cam410 3D View" title="Cam410 3D View" src="images/cam410d_30.png">
+            </div>
+            
+            <p>Scena2: o simulare 2.5D a benzii transportoare.</p>
+            <div class="media-block">
+                <img alt="Cam410 2.5D View" title="Cam410 2.5D View" src="images/cam410d_25.png">
+            </div>
+            
+            <p>Scena1: o simulare 2D a benzii transportoare.</p>
+            <div class="media-block">
+                <img alt="Cam410 2D View" title="Cam410 2D View" src="images/cam410d_20.png">
+            </div>
+            <p>
+                <strong>Versiuni:</strong><br>
+                - v230629 [29.06.2023] Cam410D: Corectie erori minore. Mici modificari ale simulatorului 3D.<br>
+                - v230124 [24.01.2023] Cam410D: 'Fork' a Cam410C bazat pe Cam410C v230124. Prima versiune cu simulare 3D.<br>
+                - v230124 [24.01.2023] Cam410C: Grafica imbunatatita.<br>
+                - v221025 [25.10.2022] Cam410C: Corectare erori (eroare la activare template, etc.)<br>
+                - v220321 [21.03.2022] Cam410C: Mici imbunatatiri la interfata.<br>
+                - v220117 [17.01.2022] Cam410C: Grafica si functionalitate imbunatatite referitor la viteza de simulare.<br>
+                - v210524 [24.05.2021] Cam410C: Fereastra scalabila.<br>
+                - v210511 [11.05.2021] Cam410C: Teste pentru scalare fereastra.<br>
+                - v210509 [09.05.2021] Cam410C: Test pentru o versiune comuna atat pentru standurile de TIA Portal cat si pentru cele cu S7-300.<br>
+                - v210407 [07.04.2021] Cam410C [Classic] [pt. S7-300]: 'Fork' a Cam410. Adaptat pentru cursurile S7-300.<br>
+                - v210301 [01.03.2021] Cam410: 'Checkbox' pentru comutare rapida a adreselor intre S7-1500 si ET200SP. Ultima versiune Cam410. Inlocuit de Cam410C de la Cam410C v210509<br>
+                - v210123 [23.01.2021] Cam410D: Teste initiale o simulare 3D bazata pe OpenGL. Versiune de test, ne-functionala.<br>
+                - v201204 [04.12.2020] Cam410 [zip201215]: Simulare control PID. Corecturi referitoare la fonturi, scalabilitate (cateva dimensiuni fixe).<br>
+                - v201112 [12.11.2020] Cam410 [zip201201]: Modificare scalare intrari analogice...<br>
+                - v201029 [29.10.2020] Monitrain [zip201106]: Adaugare cod control pentru conectivitate...<br>
+                - v201017 [17.10.2020] Monitrain: Adaugare vedere 2.5D. Diverse imbunatatiri referitoare la grafica si functionalitate.<br>
+                - v200514 [14.05.2020] Monitrain: Posibilitate de control a vitezei de animatie. Textele butoanelor sunt editabile.<br>
+                - v200428 [28.04.2020] Monitrain: Prima versiune functionala. Vedere fixa 2D. Doar setari pentru stand curs TIA Portal.<br>
+            </p>
+            <br>
+            <p><em>
+            Proiectul utilizeaza Snap7 sub licenta LGPL3 pentru comunicatia cu echipamentul Sinumerik/Sinamics/Step7.<br>
+            Proiectul utilizeaza Qt sub licenta LGPL3.<br>
+            Proiectul poate utiliza interfata S7ONLINE daca biblioteca DLL este copiata in directorul executabilului si licenta pentru aceasta este activata.
+            </em></p>
+        </section>
+        <section class="card" id="cam410s-section">
+            <h2>Cam410S, Cam410hlp: Simulator pentru TIA Safety</h2>
+            <h3>Cam410S</h3>
+            <div class="media-block">
+                <img alt="Cam410S View" title="Cam410S View" src="images/cam410s_25.png">
+            </div>
+            <p><strong>Cam410s</strong> este un mic simulator a instalatiei utilizate la cursurile (cu acces remote/online) TIA Safety...</p>
+            <p>
+                <strong>Versiuni:</strong><br>
+                - v230124 [24.01.2023] Grafica imbunatatita.<br>
+                - v221017 [17.10.2022] Fereastra scalabila. Imbunatatiri functionale. Corectare erori.<br>
+                - v220222 [22.02.2022] Versiune noua pentru standul de scolarizare TIA Portal Safety v16/17. Diverse imbunatatiri functionale. Corectare erori.<br>
+                - v210119 [19.01.2021] Corectare erori.<br>
+                - v201204 [04.12.2020] [zip201218] Teste initiale. 2.5D cu dimensiune fixa. Setat pentru standul TIA Portal Safety v15.<br>
+            </p>
+            <h3>Cam410hlp</h3>
+            <p><strong>Cam410hlp</strong> este o aplicatie C# utilzata pentru controlul intrarilor "Safety Inputs" ale unui PLC simulat.</p>
+            <p>Intrarile de tip Safety sunt protejate in PLC si valorile lor nu pot fi scrise din aplicatii externe conectate la PLC.</p>
+            <p>Simulatoarele PLC precum PLCSIM Advanced pastreaza acest comportament astfel incat Intrarile de tip Safety raman protejate.</p>
+            <p>Din acest motiv, chiar si atunci cand sunt utilizate simulatoarele S7-PLCSIM sau S7-PLCSIM Advanced, Cam410s poate citi atat iesirile PLC "standard" si "safety", poate scrie intrarile PLC "standard" dar nu poate scrie valori pentru intrarile PLC "safety".</p>
+            <p>Cam410hlp foloseste interfata API a PLCSIM Advanced pentru a ajuta aplicatia Cam410s sa controleze starea intrarilor "safety" pentru un PLC simulat.</p>
+            
+            <p><strong>Ajutor:</strong></p>
+            <p>Programul se conecteaza automat la prima instanta deschisa in PLCSim Advanced.</p>
+            <p>
+            - Daca PLCSim Advanced nu este instalat programul se inchide din cauza erorii.<br>
+            - Daca nu este activa nici o instanta programul asteapta initializarea unei instante.<br>
+            - Daca sunt mai multe instante active, se conecteaza la prima dintre ele (instanta 0).<br>
+            - Daca instanta 0 este inchisa se conecteaza automat la urmatoarea instanta, daca exista).
+            </p>
+            <p>Programul citeste din fisierul cam410hlp.ini perechi de adrese:</p>
+<pre><code>I_[n]=
+O_[n]=</code></pre>
+            <p>Adresele pot fi absolute (cu % ca prim caracter) sau de tip "Tag PLC" (fara % ca prim caracter).</p>
+            <p>Adresele absolute pot fi doar I, M, Q si doar Bool sau Byte.</p>
+            <p>Exemple pt. Bool: <code>%I0.0, %M2.7, %Q12.3</code></p>
+            <p>Exemple pt. Byte: <code>%MB10, %IB12, %QB20</code></p>
+            <p>Adresele simbolice, de tip "Tag PLC", trebuie sa existe in tabelele de Tag-uri din PLC, programul verifica lista la conectare.</p>
+            <p>Dupa conectarea la instanta PLCSim Advanced, valoarea parametrului I_[n] este transferata in O_[n], daca e posibil.</p>
+            <p>Sunt transferate valori doar intre parametri de acelasi tip sau compatibili:</p>
+<pre><code>I_[n]=%M20.0
+O_[n]=%I4.0</code></pre>
+            <p>Valoarea M20.0 este transferata automat in I4.0</p>
+            <p>
+            <strong>Versiuni:</strong><br>
+            - v220330 [30.03.2022] Corectat 'bug' "crash on downloading PLC program".<br>
+            - v210104 [04.01.2021] Prima versiune functionala.<br>
+            </p>
+        </section>
+    </main>
+    <footer class="footer">
+        <span>Cam410</span>
+        <span>alxcor@yahoo.com</span>
+    </footer>
+    <script>
+        document.getElementById('bt_dark').addEventListener('click', () => {
+            const isDarkNow = document.body.classList.contains('dark') || 
+                              (!document.body.classList.contains('light') 
+                              && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDarkNow) {
+                document.body.classList.remove('dark');
+                document.body.classList.add('light');
+            } else {
+                document.body.classList.remove('light');
+                document.body.classList.add('dark');
+            }
+        });
+    </script>
+</body>
+</html>
